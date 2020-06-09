@@ -24,3 +24,15 @@ fpole=1239;
 fesr=18.651;
 fs=40e3;
 f0=5e3;
+% Compensator Tf
+Cc1=19.5e-6;
+Cc2=1e-9;
+Cf3=2.2e-9;
+Rf1=54.5e3;
+Rf2=7.45e3;
+Rf3=3.88e3;
+Rc1=8.8e3;
+Tc=((1+Rc1*Cc1*s)*(1+s*Cf3*(Rf1+Rf3)))/(s*Rf1*Cc1*(Rc1*Cc2*s+1)*(s*Rf3*Cf3+1));
+figure
+bode(T*Tc);
+title('Bode plot of the circuit plus compensator');
